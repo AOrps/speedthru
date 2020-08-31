@@ -1,9 +1,10 @@
 console.log("Hello");
 
 chrome.browserAction.onClicked.addListener((tab) => {
-    if(typeof document != undefined) {
-        console.log("world");
-    }
+    browser.tabs.executeScript({
+        code:`let vid = document.getElementsByTagName("video")[0];` +
+        `vid.playbackRate = 15.00;`
+    });
 });
 
 // chrome.browserAction.onClicked.addListener((tab) => {
